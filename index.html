@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kovac’s Industries — Contact</title>
+<link rel="icon" href="data:,">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(58,58,68,0.18), transparent 6%),
+      radial-gradient(1000px 500px at 90% 90%, rgba(80,18,120,0.12), transparent 6%),
+      #0b0b0d;
+    color:#dfe6ee;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+  .card{
+    width:min(920px,95vw);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-radius:20px;
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.04);
+    box-shadow:
+      0 6px 40px rgba(2,2,6,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.02);
+    backdrop-filter: blur(10px) saturate(120%);
+    display:grid;
+    grid-template-columns: 1fr 340px;
+    gap:24px;
+  }
+  .neon-line{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  .neon-line::before{
+    content:"";
+    position:absolute;
+    left:-10%;
+    top:12%;
+    width:120%;
+    height:2px;
+    background:linear-gradient(90deg, rgba(155,73,255,0), rgba(155,73,255,0.45), rgba(73,255,216,0.45), rgba(73,255,216,0));
+    filter:blur(12px);
+    opacity:0.9;
+  }
+  header{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    margin-bottom:18px;
+  }
+  .logo{
+    width:74px;height:74px;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 6px 20px rgba(6,6,8,0.6), inset 0 -6px 24px rgba(0,0,0,0.6);
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:1px;
+    color:#e6e7ee;
+    text-shadow: 0 2px 8px rgba(120,80,255,0.18);
+  }
+  h1{
+    font-size:20px;
+    letter-spacing:0.6px;
+    color:#f3f6fb;
+    text-transform:none;
+    margin-bottom:4px;
+  }
+  .sub{
+    font-size:13px;
+    color:rgba(230,238,250,0.7);
+  }
+  .left{
+    padding-right:8px;
+  }
+  .about{
+    margin-top:12px;
+    color:rgba(220,228,238,0.9);
+    line-height:1.45;
+    font-size:14px;
+    max-width:100%;
+  }
+  .contact{
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+    border-radius:12px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,0.035);
+    min-height:170px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    justify-content:center;
+  }
+  .field{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.02);
+  }
+  .left-col{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .label{
+    font-size:12px;
+    color:rgba(200,210,230,0.65);
+  }
+  .value{
+    font-size:15px;
+    color:#e8eef9;
+    font-weight:600;
+  }
+  .actions{display:flex;gap:8px;margin-top:6px}
+  button{
+    cursor:pointer;
+    border:0;
+    padding:10px 12px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:13px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color:#eaf3ff;
+    box-shadow: 0 6px 20px rgba(5,5,8,0.45);
+    border:1px solid rgba(255,255,255,0.03);
+    transition:transform .12s ease, box-shadow .12s;
+  }
+  button:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(40,20,120,0.18)}
+  button.ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.03);
+    color:rgba(230,240,255,0.88);
+  }
+  .accent{
+    color: #b688ff;
+    text-shadow:
+      0 0 10px rgba(182,136,255,0.14),
+      0 0 24px rgba(182,136,255,0.06);
+  }
+  .hint{
+    font-size:12px;color:rgba(200,210,230,0.6)
+  }
+  .legal{
+    margin-top:18px;
+    font-size:12px;
+    color:rgba(190,200,220,0.45);
+  }
+  @media (max-width:880px){
+    .card{grid-template-columns:1fr; padding:22px}
+    .logo{width:64px;height:64px}
+  }
+  .toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    color:#e6f7ff;
+    padding:12px 14px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.04);
+    box-shadow:0 8px 40px rgba(8,8,10,0.6);
+    transform:translateY(18px);
+    opacity:0;
+    transition:all .28s ease;
+    pointer-events:none;
+  }
+  .toast.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="company-title">
+    <div class="neon-line" aria-hidden="true"></div>
+    <section class="left" aria-label="Présentation">
+      <header>
+        <div class="logo" aria-hidden="true">KI</div>
+        <div>
+          <h1 id="company-title"><span class="accent">Kovac’s</span> Industries</h1>
+          <div class="sub">Innovation — Systèmes — Futur</div>
+        </div>
+      </header>
+      <p class="about">
+        Kovac’s Industries est une société spécialisée dans les solutions industrielles et technologiques.
+        Basée à Kovac’s Land, nous concevons des systèmes robustes, esthétiques et performants.
+        Pour toute demande commerciale ou technique, contactez-nous via téléphone ou e-mail.
+      </p>
+      <div class="legal">
+        Siège social — 11 rue du Kovac’s Street, 06969, Kovac’s Land.
+      </div>
+    </section>
+    <aside class="contact" aria-label="Contact">
+      <div class="field">
+        <div class="left-col">
+          <div class="label">Adresse</div>
+          <div class="value">11 rue du Kovac’s Street, 06969, Kovac’s Land</div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="left-col">
+          <div class="label">Téléphone</div>
+          <div class="value"><a id="phone" href="tel:+33756830294" style="color:inherit;text-decoration:none;">+33 7 56 83 02 94</a></div>
+        </div>
+        <div>
+          <button onclick="callPhone()" title="Appeler">Appeler</button>
+        </div>
+      </div>
+      <div class="field">
+        <div class="left-col">
+          <div class="label">E-mail</div>
+          <div class="value"><a id="mail" href="mailto:Kovacs.Industries69@gmail.com" style="color:inherit;text-decoration:none;">Kovacs.Industries69@gmail.com</a></div>
+        </div>
+        <div>
+          <button onclick="copyEmail()" title="Copier l'email">Copier</button>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+        <div class="hint">Ouvert du lundi au vendredi — 09:00–18:00</div>
+        <div class="actions">
+          <button class="ghost" onclick="openMap()" title="Voir sur la carte">Voir la carte</button>
+          <button onclick="contactForm()" title="Envoyer un message">Envoyer un message</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite">Copié dans le presse-papier</div>
+<script>
+  function showToast(text){
+    const t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(()=> t.classList.remove('show'), 2400);
+  }
+  function copyEmail(){
+    const email = "Kovacs.Industries69@gmail.com";
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(email).then(()=> showToast('Email copié')).catch(()=> fallbackCopy(email));
+    } else {
+      fallbackCopy(email);
+    }
+  }
+  function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast('Copié'); } catch(e){ prompt('Copiez manuellement :', text); }
+    ta.remove();
+  }
+  function callPhone(){
+    window.location.href = 'tel:+33756830294';
+  }
+  function openMap(){
+    const q = encodeURIComponent("11 rue du Kovac’s Street, 06969, Kovac’s Land");
+    window.open('https://www.google.com/maps/search/?api=1&query='+q, '_blank');
+  }
+  function contactForm(){
+    if (document.getElementById('modal-contact')) return;
+    const modal = document.createElement('div');
+    modal.id = 'modal-contact';
+    modal.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,2,6,0.6);z-index:60';
+    modal.innerHTML = `
+      <div style="width:min(720px,94vw);background:linear-gradient(180deg,rgba(10,10,12,0.98),rgba(8,8,10,0.98));border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 16px 60px rgba(2,2,6,0.8);">
+        <h3 style="color:#fff;margin-bottom:10px">Envoyer un message</h3>
+        <textarea id="msg" placeholder="Votre message..." style="width:100%;height:120px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.01);color:#eaf3ff"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+          <button onclick="closeModal()" class="ghost">Annuler</button>
+          <button onclick="sendMessage()">Envoyer</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  function closeModal(){ const m = document.getElementById('modal-contact'); if(m) m.remove(); }
+  function sendMessage(){
+    const txt = document.getElementById('msg')?.value || '';
+    if (!txt.trim()){ showToast('Message vide'); return; }
+    closeModal();
+    showToast('Message envoyé');
+  }
+</script>
+</body>
+</html>
